@@ -24,6 +24,8 @@ public class DisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
+        setTitle("Cat Display");
+
         textView = findViewById(R.id.textView);
         imageView = findViewById(R.id.imageView);
 

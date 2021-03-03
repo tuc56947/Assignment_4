@@ -63,7 +63,7 @@ public class ImageAdapter extends BaseAdapter {
         ImageView catImageView;
         TextView catTextView;
 
-        isSelected = true;
+        isSelected = false;
 
         if (convertView == null){
             linearLayout = new LinearLayout(context);
