@@ -2,12 +2,12 @@ package edu.temple.assignment4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -17,13 +17,14 @@ public class SelectionActivity extends AppCompatActivity {
     Spinner spinner;
     ImageView imageView;
 
-    TextView textView;
     boolean isSelected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setTitle("Cat Selection");
 
         spinner = findViewById(R.id.spinner);
         imageView = findViewById(R.id.imageView);
@@ -47,7 +48,13 @@ public class SelectionActivity extends AppCompatActivity {
                 if(isSelected == false){
                     isSelected = true;
                 }else{
-                    showPicture(position);
+                    //showPicture(position);
+                    //create intent to pass information between activities
+                    Intent intent = new Intent(SelectionActivity.this, DisplayActivity.class);
+                    intent.putExtra("catsArray", catsArray);
+                    intent.putExtra("catImagesArray", catImagesArray);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
                 }
             }
 
