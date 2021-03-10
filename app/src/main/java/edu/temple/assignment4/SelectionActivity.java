@@ -26,6 +26,7 @@ public class SelectionActivity extends AppCompatActivity {
 
         gridView = findViewById(R.id.gridView);
         gridView.setNumColumns(3);
+        gridView.setPadding(0,0,0,0);
 
         ArrayList catsArray = new ArrayList<String>();
         catsArray.add("Bengal");

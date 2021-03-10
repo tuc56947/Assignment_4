@@ -5,6 +5,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -44,34 +45,33 @@ public class ImageAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LinearLayout linearLayout;
+        FrameLayout frameLayout;
 
         ImageView catImageView;
         TextView catTextView;
 
-        if (convertView == null){
-            linearLayout = new LinearLayout(context);
+
+            frameLayout = new FrameLayout(context);
             catImageView = new ImageView(context);
             catTextView = new TextView(context);
 
-            catTextView.setPadding(10, 15, 15, 15);
-            catTextView.setTextSize(22);
-            linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-            linearLayout.addView(catImageView);
-            linearLayout.addView(catTextView);
-            catImageView.getLayoutParams().height = 150;
-            catImageView.getLayoutParams().width = 150;
-        } else{
-            linearLayout = (LinearLayout) convertView;
-            catImageView = (ImageView) linearLayout.getChildAt(0);
-            catTextView = (TextView)linearLayout.getChildAt(1);
+            catTextView.setText(items.get(position));
+            catTextView.setPadding(0, 0, 0, 0);
+            catTextView.setTextSize(15);
+            catTextView.setGravity(Gravity.CENTER);
+            catTextView.setHeight(500);
 
-        }
+            catImageView.setLayoutParams(new FrameLayout.LayoutParams(400,500));
+            catImageView.setImageResource(cats[position]);
+            catImageView.setPadding(0,0,0,0);
 
-        catImageView.setImageResource(cats[position]);
-        catTextView.setText(items.get(position));
 
-        return linearLayout;
+            frameLayout.addView(catImageView);
+            frameLayout.addView(catTextView);
+
+
+
+        return frameLayout;
     }
 
 
