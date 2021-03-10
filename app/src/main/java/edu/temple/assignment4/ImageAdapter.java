@@ -44,26 +44,10 @@ public class ImageAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-
-        TextView textView = new TextView(context);
-        if(isSelected == false){
-            textView.setText("Select a cat: ");
-        }else{
-            textView.setText(items.get(position));
-        }
-        textView.setGravity(Gravity.CENTER);
-
-        return textView;
-    }
-
-    @Override
-    public View getDropDownView(int position, View convertView, ViewGroup parent) {
         LinearLayout linearLayout;
 
         ImageView catImageView;
         TextView catTextView;
-
-        isSelected = false;
 
         if (convertView == null){
             linearLayout = new LinearLayout(context);
