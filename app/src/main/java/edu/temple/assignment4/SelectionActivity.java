@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -14,10 +15,7 @@ import java.util.ArrayList;
 public class SelectionActivity extends AppCompatActivity {
 
     int[] catImagesArray;
-    Spinner spinner;
-    ImageView imageView;
-
-    boolean isSelected = false;
+    GridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +24,7 @@ public class SelectionActivity extends AppCompatActivity {
 
         setTitle("Cat Selection");
 
-        spinner = findViewById(R.id.spinner);
-        imageView = findViewById(R.id.imageView);
+        gridView = findViewById(R.id.gridView);
 
         ArrayList catsArray = new ArrayList<String>();
         catsArray.add("Bengal");
@@ -40,32 +37,21 @@ public class SelectionActivity extends AppCompatActivity {
 
         ImageAdapter adapter = new ImageAdapter(this, catsArray, catImagesArray);
 
-        spinner.setAdapter(adapter);
+        gridView.setAdapter(adapter);
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(isSelected == false){
-                    isSelected = true;
-                }else{
-                    //showPicture(position);
-                    //create intent to pass information between activities
-                    Intent intent = new Intent(SelectionActivity.this, DisplayActivity.class);
-                    intent.putExtra("catsArray", catsArray);
-                    intent.putExtra("catImagesArray", catImagesArray);
-                    intent.putExtra("position", position);
-                    startActivity(intent);
-                }
-            }
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                 //showPicture(position);
+                 //create intent to pass information between activities
+                 Intent intent = new Intent(SelectionActivity.this, DisplayActivity.class);
+                 intent.putExtra("catsArray", catsArray);
+                 intent.putExtra("catImagesArray", catImagesArray);
+                 intent.putExtra("position", position);
+                 startActivity(intent);
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                //textView.setText
             }
         });
     }
 
-    private void showPicture (int position) {
-        imageView.setImageResource(catImagesArray[position]);
-    }
 }

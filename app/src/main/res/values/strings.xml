@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Assignment 4</string>
+    <string name="instruction">Please select a cat</string>
 </resources>
