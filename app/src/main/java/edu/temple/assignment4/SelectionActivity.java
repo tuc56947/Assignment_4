@@ -3,6 +3,7 @@ package edu.temple.assignment4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,7 +23,10 @@ public class SelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("Cat Selection");
+        Resources res = getResources();
+
+        String title = res.getString(R.string.selection_title);
+        setTitle(title);
 
         gridView = findViewById(R.id.gridView);
         gridView.setNumColumns(3);

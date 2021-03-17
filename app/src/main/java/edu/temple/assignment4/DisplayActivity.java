@@ -3,6 +3,7 @@ package edu.temple.assignment4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.ImageView;
@@ -24,7 +25,10 @@ public class DisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
-        setTitle("Cat Display");
+        Resources res = getResources();
+
+        String title = res.getString(R.string.display_title);
+        setTitle(title);
 
         textView = findViewById(R.id.textView);
         imageView = findViewById(R.id.imageView);
