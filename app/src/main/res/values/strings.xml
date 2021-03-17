@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Assignment 4</string>
     <string name="instruction">Please select a cat</string>
+    <string name="display_title">Cat Display</string>
+    <string name="selection_title">Cat Selection</string>
+
+    <string-array name="catsArray">
+        <item>Bengal</item>
+        <item>British Blue</item>
+        <item>Norwegian Forest</item>
+        <item>Persian</item>
+        <item>Siamese</item>
+    </string-array>
 </resources>
