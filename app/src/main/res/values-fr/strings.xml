@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Assignment 4</string>
+    <string name="instruction">Veuillez sélectionner un chat</string>
+    <string name="display_title">Affichage de chat</string>
+    <string name="selection_title">Sélection de chat</string>
+
+    <string-array name="catsArray">
+        <item>Bengale</item>
+        <item>Bleu britannique</item>
+        <item>Forêt norvégienne</item>
+        <item>Persane</item>
+        <item>les Siamois</item>
+    </string-array>
+</resources>
