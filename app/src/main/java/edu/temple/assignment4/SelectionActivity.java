@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SelectionActivity extends AppCompatActivity {
 
@@ -32,12 +33,7 @@ public class SelectionActivity extends AppCompatActivity {
         gridView.setNumColumns(3);
         gridView.setPadding(0,0,0,0);
 
-        ArrayList catsArray = new ArrayList<String>();
-        catsArray.add("Bengal");
-        catsArray.add("British Blue");
-        catsArray.add("Norwegian Forest");
-        catsArray.add("Persian");
-        catsArray.add("Siamese");
+        ArrayList catsArray = new ArrayList<String>(Arrays.asList(res.getStringArray(R.array.catsArray)));
 
         catImagesArray = new int[]{R.drawable.bengal, R.drawable.britishblue, R.drawable.norwegianforest, R.drawable.persian, R.drawable.siamese};
 
